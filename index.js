@@ -38,7 +38,7 @@ async function initAsync() {
         const profileimage = await API.getProfileimage(github);
         const userlocation = await API.getUserlocation(github);
         const githubprofile = await API.getGithubprofile(github);
-        const userblog = await API.getUserblog(github);
+        const company = await API.getCompany(github);
         
         const html = generateHTML({ stars, color, followers, following, repos, userbio, profileimage, userlocation, githubprofile, userblog, ...response.data });
           console.log(html)

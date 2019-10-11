@@ -84,12 +84,12 @@ module.exports = {
         })
     
     },
-    getUserblog: function(username){
+    getCompany: function(username){
         const queryUrl = `https://api.github.com/users/${username}`
     
         return axios.get(queryUrl)
         .then(response => {
-            return response.data.blog;
+            return response.data.company;
         })
     
     },
