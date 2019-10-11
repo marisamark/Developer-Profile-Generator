@@ -1,32 +1,4 @@
-const colors = {
-  green: {
-    wrapperBackground: "#E6E1C3",
-    headerBackground: "#C1C72C",
-    headerColor: "black",
-    photoBorderColor: "#black"
-  },
-  blue: {
-    wrapperBackground: "#5F64D3",
-    headerBackground: "#26175A",
-    headerColor: "white",
-    photoBorderColor: "#73448C"
-  },
-  pink: {
-    wrapperBackground: "#879CDF",
-    headerBackground: "#FF8374",
-    headerColor: "white",
-    photoBorderColor: "#FEE24C"
-  },
-  red: {
-    wrapperBackground: "#DE9967",
-    headerBackground: "#870603",
-    headerColor: "white",
-    photoBorderColor: "white"
-  }
-};
-
-function generateHTML(data) {
-  return `<!DOCTYPE html>
+<!DOCTYPE html>
   <html lang="en">
   <head>
       <meta charset="UTF-8" />
@@ -241,30 +213,30 @@ function generateHTML(data) {
                   <div class="row">
                       <div class="col">
                           <div class="row">
-                              <img class="photo-header img" src="${data.avatar_url}" alt="profileimage">
+                              <img class="photo-header img" src="https://avatars0.githubusercontent.com/u/53931217?v=4" alt="profileimage">
                           </div>
                           <div class="row">
                               <h2 class="photo-header h1">Hi!</h2>
   
                           </div>
                           <div class="row">
-                              <h3 class="photo-header h1">My name is ${data.github}!</h3>
+                              <h3 class="photo-header h1">My name is marisamark!</h3>
                           </div>
                           <div class="row">
-                              <h6 class="photo-header h1">${data.company}</h6>
+                              <h6 class="photo-header h1">null</h6>
                           </div>
                       </div>
                   </div>
   
                   <div class="row links-nav">
                       <div class="col">
-                          <a id="userlocation" class="navlink" href="">${data.location}</a>
+                          <a id="userlocation" class="navlink" href="">Los Angeles, CA</a>
                       </div>
                       <div class="col">
-                          <a id="githubprofile" class="navlink" href="${data.githubprofile}">GitHub</a>
+                          <a id="githubprofile" class="navlink" href="https://github.com/marisamark">GitHub</a>
                       </div>
                       <div class="col">
-                          <a id="company" class="navlink" href="${data.blog}">Blog</a>
+                          <a id="company" class="navlink" href="undefined">Blog</a>
                       </div>
                   </div>
               </div>
@@ -272,7 +244,7 @@ function generateHTML(data) {
   
           <div class="container">
               <div class="row">
-                  <h5 id="userbio" class="photo-header 2">${data.bio}</h5>
+                  <h5 id="userbio" class="photo-header 2">Student at UCLA Extension's Full-Stack Coding Bootcamp</h5>
               </div>
           </div>
   
@@ -280,11 +252,11 @@ function generateHTML(data) {
               <div class="row">
                   <div class="col card">
                       <h5>Public Repositories</h5>
-                      <h5 id="repos">${data.repos}</h5>
+                      <h5 id="repos">15</h5>
                   </div>
                   <div class="col card">
                       <h5>Github Stars</h5>
-                      <h5 id="stars">${data.stars}</h5>
+                      <h5 id="stars">4</h5>
                   </div>
   
               </div>
@@ -292,18 +264,15 @@ function generateHTML(data) {
               <div class="row">
                   <div class="col card">
                       <h5>Followers</h5>
-                      <h5 id="followers">${data.followers}</h5>
+                      <h5 id="followers">1</h5>
                   </div>
                   <div class="col card">
                       <h5>Following</h5>
-                      <h5 id="following">${data.following}</h5>
+                      <h5 id="following">1</h5>
                   </div>
               </div>
           </div>
       </div>
   </body>
   
-  </html>`
-}
-
-module.exports = generateHTML
+  </html>

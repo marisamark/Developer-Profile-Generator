@@ -2,9 +2,19 @@ const inquirer = require('inquirer');
 const API = require('./API');
 const generateHTML = require('./generateHTML');
 const convertFactory = require('electron-html-to');
-const fs = require('fs');
 const open = require('open');
 const path = require('path')
+
+const fs = require('fs');
+
+
+// function writeToFile (data) {
+//     fs.writeFile('index.html', html, function (err) {
+//       if (err) throw err;
+//       console.log('Saved!');
+//     });
+//     }
+    
 
 const questions = [
     {
@@ -32,13 +42,24 @@ async function initAsync() {
         data.followers = await API.getFollowers(github);
         data.following = await API.getFollowing(github);
         data.repos = await API.getRepos(github);
-        data.userbio = await API.getUserbio(github);
-        data.profileimage = await API.getProfileimage(github);
-        data.userlocation = await API.getUserlocation(github);
+        data.bio = await API.getUserbio(github);
+        data.avatar_url = await API.getProfileimage(github);
+        data.location = await API.getUserlocation(github);
         data.githubprofile = await API.getGithubprofile(github);
         data.company = await API.getCompany(github);
 
+        console.log(data)
         const html = generateHTML(data);
+
+
+        function writeToFile (data) {
+            fs.writeFile('index.html', html, function (err) {
+              if (err) throw err;
+              console.log('Saved!');
+            });
+            }
+
+        writeToFile(html);
         console.log(html)
         //   console.log(profileImage)
         // var conversion = convertFactory({
@@ -61,5 +82,7 @@ async function initAsync() {
         console.log(error)
     }
 };
+
+
 
 initAsync();
