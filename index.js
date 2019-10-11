@@ -14,7 +14,7 @@ const questions = [
     },
     {
         type: "list",
-        choices: ["blue", "pink", "green", "black"],
+        choices: ["green", "blue", "pink", "red"],
         name: "color",
         message: "What is your favorite color?"
     }
@@ -22,29 +22,10 @@ const questions = [
 
 function writeToFile(fileName, data) {
 
+    console.log(generateHTML(data));
 }
 
-// function init() {
-//     inquirer.prompt(questions).then(({ github, color }) => {
-//         API.getUser(github)
-//             .then(response => {
-//                 return API.getStars(github)
-//                     .then(stars => {
-//                         var html = generateHTML({
-//                             stars,
-//                             color,
-//                             ...response.data
-//                         })
-//                         return html
-//                     })
-//                     .catch(err => console.log(err))
-//             })
-//             .then(html => {
-//                 console.log(html)
-//             })
-//             .catch(err => console.log(err))
-//     })
-// }
+
 async function initAsync() {
     try {
         const { github, color } = await inquirer.prompt(questions);
@@ -59,27 +40,42 @@ async function initAsync() {
         const githubprofile = await API.getGithubprofile(github);
         const userblog = await API.getUserblog(github);
         
-        
         const html = generateHTML({ stars, color, followers, following, repos, userbio, profileimage, userlocation, githubprofile, userblog, ...response.data });
-          
-        var conversion = convertFactory({
-            converterPath: convertFactory.converters.PDF,
-            timeout: 3 * 1000
-        });
+          console.log(html)
+        // var conversion = convertFactory({
+        //     converterPath: convertFactory.converters.PDF,
+        //     timeout: 3 * 1000
+        // });
 
-        conversion({ html: '<h1>Hello World</h1>' }, function (err, result) {
-            if (err) {
-                return console.error(err);
-            }
+        // conversion({ html: '<h1>Hello World</h1>' }, function (err, result) {
+        //     if (err) {
+        //         return console.error(err);
+        //     }
 
-            console.log(result.numberOfPages);
-            console.log(result.logs);
-            result.stream.pipe(fs.createWriteStream('/path/to/anywhere.pdf'));
-            conversion.kill(); // necessary if you use the electron-server strategy, see bellow for details
-        });
+        //     console.log(result.numberOfPages);
+        //     console.log(result.logs);
+        //     result.stream.pipe(fs.createWriteStream('/path/to/anywhere.pdf'));
+        //     conversion.kill(); // necessary if you use the electron-server strategy, see bellow for details
+        // });
+        // let stuff = `<html><head>`
     } catch (error) {
         console.log(error)
     }
 }
+
+
+
+///appending elements
+$('#stars').append(stars);
+$('#followers').append(followers);
+$('#following').append(following);
+$('#repos').append(repos);
+$('#userbio').append(userbio);
+$('#profileimage').append(profileimage);
+$('#userlocation').append(userlocation);
+$('#githubprofile').append(githubprofile);
+$('#userblog').append(userblog);
+
+
 
 initAsync();
