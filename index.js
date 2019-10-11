@@ -20,12 +20,6 @@ const questions = [
     }
 ];
 
-function writeToFile(fileName, data) {
-
-    console.log(generateHTML(data));
-}
-
-
 async function initAsync() {
     try {
         let data = {};

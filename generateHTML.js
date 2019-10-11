@@ -60,7 +60,7 @@ function generateHTML(data) {
   
           .wrapper {
               background-color: $ {
-                  colors[data.color].wrapperBackground
+                colors[data.color].wrapperBackground
               }
   
               ;
@@ -122,13 +122,13 @@ function generateHTML(data) {
               flex-wrap: wrap;
   
               background-color: $ {
-                  colors[data.color].headerBackground
+                colors[data.color].headerBackground
               }
   
               ;
   
               color: $ {
-                  colors[data.color].headerColor
+                colors[data.color].headerColor
               }
   
               ;
@@ -145,7 +145,7 @@ function generateHTML(data) {
               margin-top: -75px;
   
               border: 6px solid $ {
-                  colors[data.color].photoBorderColor
+                colors[data.color].photoBorderColor
               }
   
               ;
@@ -200,13 +200,13 @@ function generateHTML(data) {
               border-radius: 6px;
   
               background-color: $ {
-                  colors[data.color].headerBackground
+                colors[data.color].headerBackground
               }
   
               ;
   
               color: $ {
-                  colors[data.color].headerColor
+                colors[data.color].headerColor
               }
   
               ;

@@ -56,7 +56,7 @@ module.exports = {
     
     },
     
-    getImage: function(username){
+    getProfileimage: function(username){
         const queryUrl = `https://api.github.com/users/${username}`
     
         return axios.get(queryUrl)
