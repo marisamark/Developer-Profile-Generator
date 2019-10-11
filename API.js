@@ -55,16 +55,15 @@ module.exports = {
         })
     
     },
-
-    getProfileimage: function(username){
+    
+    getImage: function(username){
         const queryUrl = `https://api.github.com/users/${username}`
     
         return axios.get(queryUrl)
         .then(response => {
             return response.data.avatar_url;
-            //get image to be linked!!!!
         })
-    
+
     },
     getUserlocation: function(username){
         const queryUrl = `https://api.github.com/users/${username}`

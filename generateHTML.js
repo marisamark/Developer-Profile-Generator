@@ -241,14 +241,14 @@ function generateHTML(data) {
                   <div class="row">
                       <div class="col">
                           <div class="row">
-                              <img id="profileimage" class="photo-header img" src="${profileimage}" alt="profileimage">
+                              <img class="photo-header img" src="${data.profileImage}" alt="profileimage">
                           </div>
                           <div class="row">
                               <h2 class="photo-header h1">Hi!</h2>
   
                           </div>
                           <div class="row">
-                              <h3 class="photo-header h1">My name is ${response}!</h3>
+                              <h3 class="photo-header h1">My name is ${data.response} !</h3>
                           </div>
                           <div class="row">
                               <h6 class="photo-header h1">Insert Current Position Here</h6>
@@ -258,13 +258,13 @@ function generateHTML(data) {
   
                   <div class="row links-nav">
                       <div class="col">
-                          <a id="userlocation" class="navlink" href="https://www.w3schools.com">${location}</a>
+                          <a id="userlocation" class="navlink" href="https://www.w3schools.com">${data.location}</a>
                       </div>
                       <div class="col">
-                          <a id="githubprofile" class="navlink" href="https://www.w3schools.com">${githubprofile}</a>
+                          <a id="githubprofile" class="navlink" href="https://www.w3schools.com">${data.githubprofile}</a>
                       </div>
                       <div class="col">
-                          <a id="company" class="navlink" href="https://www.w3schools.com">Currently @ ${company}</a>
+                          <a id="company" class="navlink" href="https://www.w3schools.com">Currently @ ${data.company}</a>
                       </div>
                   </div>
               </div>
@@ -272,7 +272,7 @@ function generateHTML(data) {
   
           <div class="container">
               <div class="row">
-                  <h5 id="userbio" class="photo-header 2">${bio}</h5>
+                  <h5 id="userbio" class="photo-header 2">${data.bio}</h5>
               </div>
           </div>
   
@@ -280,11 +280,11 @@ function generateHTML(data) {
               <div class="row">
                   <div class="col card">
                       <h5>Public Repositories</h5>
-                      <h5 id="repos">${repos}</h5>
+                      <h5 id="repos">${data.repos}</h5>
                   </div>
                   <div class="col card">
                       <h5>Github Stars</h5>
-                      <h5 id="stars">${stars}</h5>
+                      <h5 id="stars">${data.stars}</h5>
                   </div>
   
               </div>
@@ -292,11 +292,11 @@ function generateHTML(data) {
               <div class="row">
                   <div class="col card">
                       <h5>Followers</h5>
-                      <h5 id="followers">${followers}</h5>
+                      <h5 id="followers">${data.followers}</h5>
                   </div>
                   <div class="col card">
                       <h5>Following</h5>
-                      <h5 id="following">${following}</h5>
+                      <h5 id="following">${data.following}</h5>
                   </div>
               </div>
           </div>

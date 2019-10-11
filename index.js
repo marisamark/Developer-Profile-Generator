@@ -28,20 +28,25 @@ function writeToFile(fileName, data) {
 
 async function initAsync() {
     try {
+        let data = {};
         const { github, color } = await inquirer.prompt(questions);
-        const response = await API.getUser(github);
-        const stars = await API.getStars(github);
-        const followers = await API.getFollowers(github);
-        const following = await API.getFollowing(github);
-        const repos = await API.getRepos(github);
-        const userbio = await API.getUserbio(github);
-        const profileimage = await API.getProfileimage(github);
-        const userlocation = await API.getUserlocation(github);
-        const githubprofile = await API.getGithubprofile(github);
-        const company = await API.getCompany(github);
-        
-        const html = generateHTML({ stars, color, followers, following, repos, userbio, profileimage, userlocation, githubprofile, userblog, ...response.data });
-          console.log(html)
+        // and then
+        data.github = github;
+        data.color = color;
+        data.response = await API.getUser(github);
+        data.stars = await API.getStars(github);
+        data.followers = await API.getFollowers(github);
+        data.following = await API.getFollowing(github);
+        data.repos = await API.getRepos(github);
+        data.userbio = await API.getUserbio(github);
+        data.profileimage = await API.getProfileimage(github);
+        data.userlocation = await API.getUserlocation(github);
+        data.githubprofile = await API.getGithubprofile(github);
+        data.company = await API.getCompany(github);
+
+        const html = generateHTML(data);
+        console.log(html)
+        //   console.log(profileImage)
         // var conversion = convertFactory({
         //     converterPath: convertFactory.converters.PDF,
         //     timeout: 3 * 1000
@@ -61,21 +66,6 @@ async function initAsync() {
     } catch (error) {
         console.log(error)
     }
-}
-
-
-
-///appending elements
-$('#stars').append(stars);
-$('#followers').append(followers);
-$('#following').append(following);
-$('#repos').append(repos);
-$('#userbio').append(userbio);
-$('#profileimage').append(profileimage);
-$('#userlocation').append(userlocation);
-$('#githubprofile').append(githubprofile);
-$('#userblog').append(userblog);
-
-
+};
 
 initAsync();
